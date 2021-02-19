@@ -1,0 +1,2 @@
+C:\Users\micae\Desktop\ProgAv\ListaPonteiros\Debug\ListaPonteiros.exe
+C:\Users\micae\Desktop\ProgAv\ListaPonteiros\Debug\ListaPonteiros.pdb
