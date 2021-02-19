@@ -1,0 +1,3 @@
+Ponteiro é um tipo de variável que armazena um endereço de memória. Com isso, este tipo de variável permite ao programador manipular, de certa forma,
+a quantidade de memória que o programa utilizará para realizar suas funções. Dessa forma, possibilita a criação de programas mais eficientes, com uma boa gestão da memória, que, por exemplo,
+possam realizar um maior volume de cálculos em um certo período de tempo sem a necessidade de computadores de elevado nível.

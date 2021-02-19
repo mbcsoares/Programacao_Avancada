@@ -1,8 +1,0 @@
-﻿  LP-16.c
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(61,25): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(62,25): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(66,25): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(67,25): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(85,39): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\micae\Desktop\ProgAv\ListaPonteiros\LP-16.c(103,39): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-  ListaPonteiros.vcxproj -> C:\Users\micae\Desktop\ProgAv\ListaPonteiros\Debug\ListaPonteiros.exe
