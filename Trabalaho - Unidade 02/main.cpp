@@ -31,19 +31,14 @@ void ExemplosTestes(void)
 }
 
 
-
-
-
-
-
 int main(void)
 {
-	ExemplosTestes();
+	//ExemplosTestes();
 
-	/*Sculptor foguete(5, 5, 28);
+	Sculptor foguete(40, 40, 220);
 
 	foguete.setColor(1.0, 0, 0, 1);
-	foguete.FogueteP01(10, 40);
+	foguete.DesenhoFoguete();
 
-	foguete.writeOFF((char*)"foguete.off");*/
+	foguete.writeOFF((char*)"foguete.off");
 }

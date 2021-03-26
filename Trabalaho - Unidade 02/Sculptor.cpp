@@ -47,11 +47,11 @@ void Sculptor::setColor(float _r, float _g, float _b, float alpha)
 
 void Sculptor::putVoxel(int _x, int _y, int _z)
 {
-	if (!(_x < 0 || _x > nx))
+	if (_x > 0 || _x < nx)
 	{
-		if (!(_y < 0 || _y > nx))
+		if (_y > 0 || _y < ny)
 		{
-			if (!(_z < 0 || _z > nx))
+			if (_z > 0 || _z < nz)
 			{
 				matriz[_x][_y][_z].setIsOn(true);
 
@@ -359,99 +359,183 @@ int Sculptor::numberActiveVoxels(void)
 }
 
 
-
-//int coordY(int _x)
-//{
-//	int y;
-//
-//	if (0 <= _x && _x < 10)
-//	{
-//		return y = 1.7321 * _x;
-//	}
-//	else if (10 <= _x && _x <= 20)
-//	{
-//		return y = sqrt(400 - (_x) * (_x));
-//	}
-//
-//	return 0;
-//}
-//
-//int coordZ1(int _x, int _y)
-//{
-//	int z;
-//
-//	if ((_x * _x + _y * _y) <= 94.35)
-//	{
-//		return z = 51.98 - sqrt(94.35 - _x * _x - _y * _y);
-//	}
-//	if ((_x * _x + _y * _y) <= 400)
-//	{
-//		return z = 10.0 * sqrt(_x * _x + _y * _y) + 51.98;
-//	}
-//
-//	return 0;
-//}
-//
-//int coordZ2(int _x, int _y)
-//{
-//	int z;
-//
-//	return z = 3.50 * sqrt(_x * _x + _y * _y) + 150;
-//}
+//-----FEUNÇÕES SECUNDÁRIAS-----//
 
 
-//void Sculptor::FogueteP01(int r1, int r2)
-//{
-//	int x, y, z;
-//	float yDelta, zDelta;
-//	int xo, yo, zo;
-//
-//	xo = nx / 2;
-//	yo = ny / 2;
-//	zo = 0;
-//
-//	for (x = xo - r1; x <= xo + r1; x++)
-//	{
-//		yDelta = sqrt(pow(r1, 2) - pow(1.0 * (x - xo), 2));
-//
-//		for (y = round(yo - yDelta); y <= round(yo + yDelta); y++)
-//		{
-//			zDelta = sqrt( pow(r1, 2) - pow(1.0 * (x - xo), 2) - pow(1.0 * (y - yo), 2) );
-//
-//			for (z = 42 + round(zDelta); z <= 52; z=z+1)
-//			{
-//				cout << zDelta << endl;
-//				//cutVoxel(x, y, z);
-//			}
-//		}
-//
-//	}
+//---ESCULTURA DE UM FOGUETE---//
 
 
-
-	/*int x, y, z;
+void Sculptor::DesenhoFoguete(void)
+{
+	int x, y, z;
 	float yDelta, zDelta;
+	int xo, yo, zo;
+	int r1, r2;
 
-	if (radius > rxMax || radius > ryMax || radius > rzMax)
+	r2 = ny / 2;
+	r1 = r2 / 2;
+
+	if (nx < ny) //menor valor entre nx e ny
 	{
-		return;
+		r2 = nx / 2;
+		r1 = r2 / 2;
 	}
 
-	for (x = xCenter - radius; x <= xCenter + radius; x++)
+	xo = nx / 2;
+	yo = ny / 2;
+	zo = nz / 4;
+
+	cout << "r2 = " << r2 << endl;
+	cout << "r1 = " << r1 << endl;
+
+	for (x = xo - r1; x <= xo + r1; x++) //semi-esfera
 	{
-		yDelta = sqrt(pow(radius, 2) - pow(x - xCenter, 2));
+		yDelta = sqrt(pow(r1, 2) - pow(1.0 * (x - xo), 2));
 
-		for (y = round(yCenter - yDelta); y <= round(yCenter + yDelta); y++)
+		cout << "x = " << x << endl;
+
+		for (y = round(yo - yDelta); y <= round(yo + yDelta); y++)
 		{
-			zDelta = sqrt(pow(radius, 2) - pow(x - xCenter, 2) - pow(y - yCenter, 2));
-
-			for (z = round(zCenter - zDelta); z <= round(zCenter + zDelta); z++)
+			if (pow(r1, 2) >= pow(x - xo, 2) + pow(y - yo, 2) && pow(0.5 * r1, 2) <= pow(x - xo, 2) + pow(y - yo, 2))
 			{
-				cutVoxel(x, y, z);
+				zDelta = sqrt(pow(r1, 2) - pow(1.0 * (x - xo), 2) - pow(1.0 * (y - yo), 2));
+
+				cout << "y = " << y << endl;
+
+				for (z = zo - round(zDelta); z <= zo; z++)
+				{
+					if (pow(r1, 2) >= (pow(x - xo, 2) + pow(y - yo, 2) + pow(z - zo, 2)) && pow(0.8*r1, 2) <= (pow(x - xo, 2) + pow(y - yo, 2) + pow(z - zo, 2)) && pow(r1, 2))
+					{
+						setColor(.20, 0.20, 0.20, 1);
+
+						putVoxel(x, y, z);
+
+						cout << "z = " << z << endl;
+					}
+				}
 			}
 		}
-	}*/
+
+	}
+
+	for (x = xo - r2; x <= xo + r2; x++) //corpo do foguete - tronco de cone mais cone da ponta
+	{
+		yDelta = sqrt(pow(r2, 2) - pow(1.0 * (x - xo), 2));
+
+		cout << "x2 = " << x << endl;
+
+
+		for (y = round(yo - yDelta); y <= round(yo + yDelta); y++) //tronco de cone
+		{
+			if (pow(r2, 2) >= (pow(x - xo, 2) + pow(y - yo, 2)) && pow(0.8 * r1, 2) <= (pow(x - xo, 2) + pow(y - yo, 2)))
+			{
+				zDelta = 10 * (sqrt(pow(1.0 * (x - xo), 2) + pow(1.0 * (y - yo), 2)) - r1);
+
+				cout << "y2 = " << y << endl;
+
+				for (z = zo + round(zDelta); z <= zo + round(zDelta) + 1.2 * r2; z++)
+				{
+					if (z >= zo && z <= round(7.5 * r2))
+					{
+						setColor(.75, 0.75, .75, 1);
+
+						if (z >= 7.05 * r2 && z <= 7.15 * r2)
+						{
+							setColor(1.0, 0, 0, 1);
+						}
+
+						putVoxel(x, y, z);
+
+						cout << "z2 = " << z << endl;
+					}
+					
+				}
+			}
+
+			zDelta = 3.5 * (sqrt(pow(1.0 * (x - xo), 2) + pow(1.0 * (y - yo), 2)));
+
+			cout << "zDelta3 = " << zDelta << endl;
+
+			for (z = nz - round(zDelta) - 0.425 * r2; z <= nz - round(zDelta); z++) //cone
+			{
+				if (z < nz && z > round(7.5 * r2))
+				{
+					setColor(.75, 0.75, .75, 1);
+
+					if (z >= 8.05 * r2 && z <= 8.15 * r2)
+					{
+						setColor(1.0, 0, 0, 1);
+					}
+
+					putVoxel(x, y, z);
+
+					cout << "z3 = " << z << endl;
+				}
+
+			}
+		}
 
 
 
+	}
 
+	for (y = yo - .05 * r2; y <= yo + .05 * r2; y++)
+	{
+		for (x = xo - r2; x < xo + r2; x++)
+		{
+			if (pow(x - xo, 2) >= pow(0.265 * r2, 2) && pow(x - xo, 2) <= pow(nx / 2, 2))
+			{
+				zDelta = 3.4 * (sqrt(pow(x - xo, 2)) - 0.265 * r2);
+
+				for (z = round(zDelta); z <= 5.0 * r2 - round(zDelta); z++)
+				{
+					if (z <= 3.75 * r2)
+					{
+						setColor(.40, .40, .40, 1);
+
+						if (z >= 2.45 * r2 && z <= 2.55 * r2)
+						{
+							setColor(1.0, 0, 0, 1);
+						}
+
+						putVoxel(x, y, z);
+						cout << "z4 = " << z << endl;
+					}
+
+
+				}
+			}
+
+		}
+	}
+
+	for (x = xo - .05 * r2; x <= xo + .05 * r2; x++)
+	{
+		for (y = yo - r2; y < yo + r2; y++)
+		{
+			if (pow(y - yo, 2) >= pow(0.265 * r2, 2) && pow(y - yo, 2) <= pow(ny / 2, 2))
+			{
+				zDelta = 3.4 * (sqrt(pow(y - yo, 2)) - 0.265 * r2);
+
+				for (z = round(zDelta); z <= 5.0 * r2 - round(zDelta); z++)
+				{
+					if (z <= 3.75 * r2)
+					{
+						setColor(.40, .40, .40, 1);
+
+						if (z >= 2.45 * r2 && z <= 2.55 * r2)
+						{
+							setColor(1.0, 0, 0, 1);
+						}
+
+						putVoxel(x, y, z);
+						cout << "z4 = " << z << endl;
+					}
+
+
+				}
+			}
+
+		}
+	}
+}

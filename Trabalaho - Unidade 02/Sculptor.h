@@ -36,6 +36,6 @@ public:
 
 	//FUNÇÕES SECUNDÁRIAS
 
-	void FogueteP01(int r1, int r2);
+	void DesenhoFoguete(void);
 };
 
