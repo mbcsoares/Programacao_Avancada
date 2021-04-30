@@ -35,3 +35,33 @@ bool CutBox::operator==(CutEllipsoid obj)
 {
 	return false;
 }
+
+void CutBox::setX1(int _x1)
+{
+	x1 = _x1;
+}
+
+void CutBox::setY1(int _y1)
+{
+	y1 = _y1;
+}
+
+void CutBox::setZ1(int _z1)
+{
+	z1 = _z1;
+}
+
+int CutBox::getX1(void)
+{
+	return x1;
+}
+
+int CutBox::getY1(void)
+{
+	return y1;
+}
+
+int CutBox::getZ1(void)
+{
+	return z1;
+}

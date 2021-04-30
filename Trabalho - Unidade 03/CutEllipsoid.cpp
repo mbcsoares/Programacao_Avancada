@@ -26,3 +26,33 @@ bool CutEllipsoid::operator==(CutEllipsoid obj)
 {
 	return true;
 }
+
+void CutEllipsoid::setRx(int _rx)
+{
+	rx = _rx;
+}
+
+void CutEllipsoid::setRy(int _ry)
+{
+	ry = _ry;
+}
+
+void CutEllipsoid::setRz(int _rz)
+{
+	rz = _rz;
+}
+
+int CutEllipsoid::getRx(void)
+{
+	return rx;
+}
+
+int CutEllipsoid::getRy(void)
+{
+	return ry;
+}
+
+int CutEllipsoid::getRz(void)
+{
+	return rz;
+}

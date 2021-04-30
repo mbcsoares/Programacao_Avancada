@@ -53,3 +53,33 @@ bool PutEllipsoid::operator==(CutEllipsoid obj)
 {
 	return false;
 }
+
+void PutEllipsoid::setRx(int _rx)
+{
+	rx = _rx;
+}
+
+void PutEllipsoid::setRy(int _ry)
+{
+	ry = _ry;
+}
+
+void PutEllipsoid::setRz(int _rz)
+{
+	rz = _rz;
+}
+
+int PutEllipsoid::getRx(void)
+{
+	return rx;
+}
+
+int PutEllipsoid::getRy(void)
+{
+	return ry;
+}
+
+int PutEllipsoid::getRz(void)
+{
+	return rz;
+}

@@ -5,7 +5,7 @@
 
 class CutEllipsoid : public FiguraGeometrica
 {
-private:
+protected:
 	int rx, ry, rz;
 
 public:
@@ -14,6 +14,14 @@ public:
 	void draw(Sculptor& _figura);
 
 	bool operator==(CutEllipsoid obj);
+
+	void setRx(int _rx);
+	void setRy(int _ry);
+	void setRz(int _rz);
+
+	int getRx(void);
+	int getRy(void);
+	int getRz(void);
 };
 
 #endif

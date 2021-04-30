@@ -17,6 +17,9 @@ public:
 
 	bool operator==(CutSphere obj);
 	bool operator==(CutEllipsoid obj);
+
+	void setRadius(int _radius);
+	int getRadius(void);
 };
 
 #endif

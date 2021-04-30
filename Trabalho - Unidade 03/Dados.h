@@ -24,17 +24,17 @@ using namespace std;
 class Dados
 {
 private:
-	int num;
-	char arqL[100];
-	char arqE[100];
-	bool vrfLeitura = false, vrfEscrita = true;
+	int num, nx, ny, nz;
+	char *arqL;
+	char *arqE;
+	bool vrfLeitura = false, vrfEscrita = false;
 
 	ifstream arqLeitura;
 	ofstream arqEscrita;
 
 public:
 	Dados();
-	Dados(int _num);
+	Dados(int _num, int _nx, int _ny, int _nz);
 
 	void leitura(char *_arqNome);
 	void escrita(char *_arqNome);
@@ -42,6 +42,7 @@ public:
 	void setNum(int _num);
 	int getNum(void);
 
+	//--gravação--//
 	void addFigura(PutVoxel obj);
 	void addFigura(PutBox obj);
 	void addFigura(PutSphere obj);
@@ -51,7 +52,6 @@ public:
 	void addFigura(CutBox obj);
 	void addFigura(CutSphere obj);
 	void addFigura(CutEllipsoid obj);
-
 };
 
 #endif;

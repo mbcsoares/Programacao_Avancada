@@ -8,11 +8,11 @@ PutVoxel::PutVoxel()
 	a = 1;
 }
 
-PutVoxel::PutVoxel(int _x, int _y, int _z, float _r, float _g, float _b, float _a)
+PutVoxel::PutVoxel(int _x0, int _y0, int _z0, float _r, float _g, float _b, float _a)
 {
-	x0 = _x;
-	y0 = _y;
-	z0 = _z;
+	x0 = _x0;
+	y0 = _y0;
+	z0 = _z0;
 	r = _r;
 	g = _g;
 	b = _b;

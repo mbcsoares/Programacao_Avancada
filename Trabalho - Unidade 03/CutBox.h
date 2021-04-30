@@ -19,6 +19,15 @@ public:
 	bool operator==(CutBox obj);
 	bool operator==(CutSphere obj);
 	bool operator==(CutEllipsoid obj);
+
+	void setX1(int _x1);
+	void setY1(int _y1);
+	void setZ1(int _z1);
+
+	int getX1(void);
+	int getY1(void);
+	int getZ1(void);
+	
 };
 
 #endif

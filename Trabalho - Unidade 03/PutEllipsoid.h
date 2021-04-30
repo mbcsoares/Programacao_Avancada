@@ -12,8 +12,6 @@ class PutEllipsoid : public FiguraGeometrica
 {
 private:
 	int rx, ry, rz;
-	float r, g, b;
-	float a;
 
 public:
 	PutEllipsoid();
@@ -26,6 +24,14 @@ public:
 	bool operator==(CutBox obj);
 	bool operator==(CutSphere obj);
 	bool operator==(CutEllipsoid obj);
+
+	void setRx(int _rx);
+	void setRy(int _ry);
+	void setRz(int _rz);
+
+	int getRx(void);
+	int getRy(void);
+	int getRz(void);
 };
 
 #endif

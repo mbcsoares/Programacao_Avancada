@@ -14,8 +14,6 @@ class PutSphere : public FiguraGeometrica
 {
 private:
 	int radius;
-	float r, g, b;
-	float a;
 
 public:
 	PutSphere();
@@ -29,6 +27,9 @@ public:
 	bool operator==(CutBox obj);
 	bool operator==(CutSphere obj);
 	bool operator==(CutEllipsoid obj);
+
+	void setRadius(int _radius);
+	int getRadius(void);
 };
 
 #endif

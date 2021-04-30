@@ -56,3 +56,13 @@ bool PutSphere::operator==(CutEllipsoid obj)
 {
 	return false;
 }
+
+void PutSphere::setRadius(int _radius)
+{
+	radius = _radius;
+}
+
+int PutSphere::getRadius(void)
+{
+	return radius;
+}

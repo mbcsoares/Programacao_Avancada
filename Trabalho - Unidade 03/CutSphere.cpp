@@ -29,3 +29,13 @@ bool CutSphere::operator==(CutEllipsoid obj)
 {
 	return false;
 }
+
+void CutSphere::setRadius(int _radius)
+{
+	radius = _radius;
+}
+
+int CutSphere::getRadius(void)
+{
+	return radius;
+}

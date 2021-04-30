@@ -62,3 +62,33 @@ bool PutBox::operator==(CutEllipsoid obj)
 {
 	return false;
 }
+
+void PutBox::setX1(int _x1)
+{
+	x1 = _x1;
+}
+
+void PutBox::setY1(int _y1)
+{
+	y1 = _y1;
+}
+
+void PutBox::setZ1(int _z1)
+{
+	z1 = _z1;
+}
+
+int PutBox::getX1(void)
+{
+	return x1;
+}
+
+int PutBox::getY1(void)
+{
+	return y1;
+}
+
+int PutBox::getZ1(void)
+{
+	return z1;
+}

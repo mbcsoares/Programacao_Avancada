@@ -14,13 +14,9 @@
 
 class PutVoxel : public FiguraGeometrica
 {
-private:
-	float r, g, b;
-	float a;
-
 public:
 	PutVoxel();
-	PutVoxel(int _x, int _y, int _z, float _r, float _g, float _b, float _a);
+	PutVoxel(int _x0, int _y0, int _z0, float _r, float _g, float _b, float _a);
 	void draw(Sculptor &_figura);
 
 	bool operator==(PutVoxel obj);
